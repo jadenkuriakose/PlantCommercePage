@@ -1,0 +1,85 @@
+
+body {
+    background-image: url("images/palanter.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    font-family: 'Arial', sans-serif;
+  }
+  
+
+  .home {
+    text-align: left;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); 
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    max-width: 600px;
+    width: 100%;
+  }
+  
+ 
+  .home h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+    left: 50px;
+    color: #f8f8f8; 
+  }
+  
+
+  .home p {
+    font-size: 1.25rem;
+    margin-top: 10px;
+    position: relative;
+    left: 50px;
+    max-width: 500px;
+    color: #d1d1d1;
+  }
+
+  .home button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 50px;
+  }
+  
+
+  .home button:hover {
+    background-color: #45a049;
+  }
+
+  @media (max-width: 768px) {
+    .home {
+      padding: 15px;
+    }
+  
+    .home h1 {
+      font-size: 2.5rem;
+      left: 20px;
+    }
+  
+    .home p {
+      left: 20px;
+      font-size: 1.1rem;
+    }
+  
+    .home button {
+      left: 20px;
+      font-size: 1rem;
+    }
+  }
+  
