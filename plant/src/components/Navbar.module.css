@@ -1,21 +1,36 @@
 .nav {
     background-color: #333;
     padding: 10px;
-    width: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0;
-    z-index:2;
 }
 
-.nav ul {
-    list-style: none;
+ul {
     display: flex;
+    list-style: none;
     gap: 20px;
-    color:green;
+    margin: 0;
+    padding: 0;
 }
 
-.nav a {
+li {
+    color: white;
+}
+
+li a {
     color: white;
     text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+.cartLink {
+    display: flex;
+    align-items: center;
+}
+
+.cartLink svg {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    color: white;
 }
