@@ -6,33 +6,35 @@ import styles from './Checkout.module.css';
 const Checkout = () => {
   const [cart, setCart] = useState([]);
   const location = useLocation();
-  
+
   useEffect(() => {
-    const savedCart = location.state ? location.state.cart : [];
+    const savedCart = location.state ? location.state.cart : JSON.parse(localStorage.getItem('cart')) || [];
     setCart(savedCart);
   }, [location]);
 
   const getTotal = () => {
-    return cart.reduce((total, item) => total + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+    return cart.reduce((total, item) => total + parseFloat(item.price.replace('$', '')) * item.quantity, 0).toFixed(2);
   };
 
   return (
     <div className={styles.checkoutContainer}>
-      <h1>Checkout</h1>
+      <h1 className={styles.title}>Checkout</h1>
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className={styles.emptyCart}>Your cart is empty</p>
       ) : (
         <>
-          <h2>Order Summary</h2>
-          {cart.map((item) => (
-            <div key={item.id} className={styles.cartItem}>
-              <span>{item.name} - {item.price}</span>
-              <span>Quantity: {item.quantity}</span>
-            </div>
-          ))}
+          <h2 className={styles.orderSummary}>Order Summary</h2>
+          <div className={styles.cartItems}>
+            {cart.map((item) => (
+              <div key={item.id} className={styles.cartItem}>
+                <span className={styles.itemName}>{item.name} - {item.price}</span>
+                <span className={styles.itemQuantity}>Quantity: {item.quantity}</span>
+              </div>
+            ))}
+          </div>
           <div className={styles.cartTotal}>
             <p>Total: ${getTotal()}</p>
-            <button>Proceed to Payment</button>
+            <button className={styles.checkoutButton}>Proceed to Payment</button>
           </div>
         </>
       )}

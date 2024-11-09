@@ -67,68 +67,133 @@ body {
   .cart {
     width: 100%;
     padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   .cart-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
   
-  .cartItem span {
+  .cart-item span {
     font-size: 1rem;
-    margin-right: 10px;
+    color: #333;
+    flex-grow: 1;
+    text-align: left;
   }
   
   .cartItem button {
     background-color: #f44336;
-    color: white;
+    color: #000000;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .cartItem button:hover {
     background-color: #d32f2f;
+    transform: scale(1.05);
   }
   
   .cart-item-quantity {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
   }
   
   .cart-item-quantity button {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .cart-item-quantity button:hover {
     background-color: #e0e0e0;
+    transform: scale(1.05);
   }
   
   .cartTotal {
     font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .cartTotal button {
     background-color: #4CAF50;
-    color: rgb(0, 0, 0);
+    color: #000000;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px 18px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .cartTotal button:hover {
     background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .cart {
+      padding: 15px;
+    }
+  
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .cart-item span {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  
+    .cart-item-quantity {
+      justify-content: flex-start;
+      gap: 8px;
+    }
+  
+    .cartTotal {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 15px;
+    }
+  
+    .cartTotal button {
+      width: 100%;
+      padding: 12px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cart-item span {
+      font-size: 0.9rem;
+    }
+  
+    .cartTotal {
+      font-size: 1rem;
+    }
+  
+    .cartTotal button {
+      padding: 10px 0;
+    }
   }
   

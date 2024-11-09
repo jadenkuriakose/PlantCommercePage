@@ -1,11 +1,24 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Purchase.module.css';
 
 const Purchase = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart]);
 
   const items = [
     { id: 1, name: 'Product 1', price: '$10.00' },
@@ -17,7 +30,10 @@ const Purchase = () => {
   ];
 
   const addToCart = (item) => {
-    setCart([...cart, { ...item, quantity: 1 }]);
+    setCart((prevCart) => {
+      const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+      return updatedCart;
+    });
   };
 
   const removeFromCart = (itemId) => {
