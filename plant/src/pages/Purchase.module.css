@@ -1,9 +1,20 @@
-.purchaseContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+body {
+    background-image: url("images/palanter.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  
+  .purchaseContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    padding: 20px;
+    margin-top: 300px;
+    width: 100%;
   }
   
   .itemCard {
@@ -11,10 +22,14 @@
     background-color: #f4f4f4;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 200px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .itemCard:hover {
+    transform: translateY(-5px);
   }
   
   .itemImage {
@@ -46,6 +61,74 @@
   }
   
   .buyButton:hover {
+    background-color: #45a049;
+  }
+  
+  .cart {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .cartItem span {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  
+  .cartItem button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cartItem button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .cart-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cart-item-quantity button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-item-quantity button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .cartTotal {
+    font-weight: bold;
+  }
+  
+  .cartTotal button {
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cartTotal button:hover {
     background-color: #45a049;
   }
   
