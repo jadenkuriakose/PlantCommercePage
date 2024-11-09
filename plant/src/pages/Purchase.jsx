@@ -5,7 +5,7 @@ import styles from './Purchase.module.css';
 
 const Purchase = () => {
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const items = [
     { id: 1, name: 'Product 1', price: '$10.00' },
@@ -33,9 +33,7 @@ const Purchase = () => {
   };
 
   const getTotal = () => {
-    return cart.reduce((total, item) => {
-      return total + parseFloat(item.price.replace('$', '')) * item.quantity;
-    }, 0);
+    return cart.reduce((total, item) => total + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
   };
 
   const handleCheckout = () => {
@@ -43,7 +41,7 @@ const Purchase = () => {
       alert('Your cart is empty!');
       return;
     }
-    navigate('/checkout'); 
+    navigate('/checkout', { state: { cart } });
   };
 
   return (
@@ -56,7 +54,6 @@ const Purchase = () => {
           <button className={styles.buyButton} onClick={() => addToCart(item)}>Add to Cart</button>
         </div>
       ))}
-
       <div className={styles.cart}>
         <h2>Cart</h2>
         {cart.length === 0 ? (
