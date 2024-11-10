@@ -1,199 +1,131 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-image: url("images/palanter.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-  }
-  
-  .purchaseContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    margin-top: 300px;
-    width: 100%;
-  }
-  
-  .itemCard {
-    color: black;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .itemCard:hover {
-    transform: translateY(-5px);
-  }
-  
-  .itemImage {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  
-  h2 {
-    font-size: 1.25rem;
-    margin: 10px 0;
-  }
-  
-  .price {
-    font-size: 1.1rem;
-    color: #4CAF50;
-    margin: 10px 0;
-  }
-  
-  .buyButton {
-    background-color: #4CAF50;
-    color: rgb(0, 0, 0);
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .buyButton:hover {
-    background-color: #45a049;
-  }
-  
-  .cart {
-    width: 100%;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .cart-item span {
-    font-size: 1rem;
-    color: #333;
-    flex-grow: 1;
-    text-align: left;
-  }
-  
-  .cartItem button {
-    background-color: #f44336;
-    color: #000000;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .cartItem button:hover {
-    background-color: #d32f2f;
-    transform: scale(1.05);
-  }
-  
-  .cart-item-quantity {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .cart-item-quantity button {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .cart-item-quantity button:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05);
-  }
-  
-  .cartTotal {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .cartTotal button {
-    background-color: #4CAF50;
-    color: #000000;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .cartTotal button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-  }
-  
-  @media (max-width: 768px) {
-    .cart {
-      padding: 15px;
-    }
-  
-    .cart-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  
-    .cart-item span {
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-  
-    .cart-item-quantity {
-      justify-content: flex-start;
-      gap: 8px;
-    }
-  
-    .cartTotal {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 15px;
-    }
-  
-    .cartTotal button {
-      width: 100%;
-      padding: 12px 0;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .cart-item span {
-      font-size: 0.9rem;
-    }
-  
-    .cartTotal {
-      font-size: 1rem;
-    }
-  
-    .cartTotal button {
-      padding: 10px 0;
-    }
-  }
-  
+  background-image: url("images/palanter.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  top: 200px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.purchaseContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: rgb(0, 255, 153);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.productSection {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.itemCard {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.itemCard:hover {
+  transform: translateY(-5px);
+}
+
+.itemImage {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.buyButton {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buyButton:hover {
+  background-color: #45a049;
+}
+
+.cartSection {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartItem {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartItem span {
+  font-size: 1rem;
+  color: #333;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.cartItemQuantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cartItem button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
