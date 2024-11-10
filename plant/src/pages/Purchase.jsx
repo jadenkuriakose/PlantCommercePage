@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +17,8 @@ const Purchase = () => {
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.setItem('cart', JSON.stringify([]));
     }
   }, [cart]);
 
@@ -32,19 +33,19 @@ const Purchase = () => {
 
   const addToCart = (item) => {
     setCart((prevCart) => {
-      const updatedCart = [...prevCart, {...item, quantity: 1 }];
+      const updatedCart = [...prevCart, { ...item, quantity: 1 }];
       return updatedCart;
     });
   };
 
   const removeFromCart = (itemId) => {
-    setCart(cart.filter(item => item.id!== itemId));
+    setCart(cart.filter(item => item.id !== itemId));
   };
 
   const updateQuantity = (itemId, action) => {
     setCart(cart.map(item =>
       item.id === itemId
-     ? {...item, quantity: action === 'increment'? item.quantity + 1 : item.quantity - 1 }
+        ? { ...item, quantity: action === 'increment' ? item.quantity + 1 : item.quantity - 1 }
         : item
     ));
   };
@@ -74,7 +75,13 @@ const Purchase = () => {
               <img src="images/lotus.jpg" alt={item.name} className={styles.itemImage} />
               <h2>{item.name}</h2>
               <p className={styles.price}>{item.price}</p>
-              <button className={styles.buyButton} onClick={() => addToCart(item)}>Add to Cart</button>
+              <button
+                className={styles.buyButton}
+                onClick={() => addToCart(item)}
+                disabled={cart.some(cartItem => cartItem.id === item.id)}
+              >
+                {cart.some(cartItem => cartItem.id === item.id) ? 'Added' : 'Add to Cart'}
+              </button>
             </div>
           ))}
         </div>
@@ -85,7 +92,13 @@ const Purchase = () => {
               <img src="images/daff.webp" alt={item.name} className={styles.itemImage} />
               <h2>{item.name}</h2>
               <p className={styles.price}>{item.price}</p>
-              <button className={styles.buyButton} onClick={() => addToCart(item)}>Add to Cart</button>
+              <button
+                className={styles.buyButton}
+                onClick={() => addToCart(item)}
+                disabled={cart.some(cartItem => cartItem.id === item.id)}
+              >
+                {cart.some(cartItem => cartItem.id === item.id) ? 'Added' : 'Add to Cart'}
+              </button>
             </div>
           ))}
         </div>
@@ -96,14 +109,20 @@ const Purchase = () => {
               <img src="images/rose.jpg" alt={item.name} className={styles.itemImage} />
               <h2>{item.name}</h2>
               <p className={styles.price}>{item.price}</p>
-              <button className={styles.buyButton} onClick={() => addToCart(item)}>Add to Cart</button>
+              <button
+                className={styles.buyButton}
+                onClick={() => addToCart(item)}
+                disabled={cart.some(cartItem => cartItem.id === item.id)}
+              >
+                {cart.some(cartItem => cartItem.id === item.id) ? 'Added' : 'Add to Cart'}
+              </button>
             </div>
           ))}
         </div>
       </div>
       <div className={styles.cartSection}>
         <h2>Cart</h2>
-        {cart.length === 0? (
+        {cart.length === 0 ? (
           <p className={styles.emptyMessage}>Your cart is empty</p>
         ) : (
           <>
@@ -120,7 +139,7 @@ const Purchase = () => {
             ))}
             <div className={styles.cartTotal}>
               <p>Total: ${getTotal()}</p>
-              <button onClick={handleCheckout}>Checkout</button>
+              <button className ={styles.button} onClick={handleCheckout}>Checkout</button>
             </div>
           </>
         )}

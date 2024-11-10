@@ -121,7 +121,17 @@ body {
 }
 
 .cartItem button {
-  background-color: #f44336;
+  background-color: #009420;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cartTotal button{
+  background-color: #009420;
   color: #fff;
   border: none;
   padding: 8px 12px;

@@ -32,3 +32,25 @@
     font-size: 1.2rem;
     color: white;
 }
+
+.cartCount {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #36f49b; 
+    color: white; 
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px; 
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    text-align: center;
+  }
+  
+  .cartCount.zero {
+    display: none;
+  }
