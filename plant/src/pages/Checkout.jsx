@@ -67,7 +67,7 @@ const Checkout = () => {
                     <span>Quantity: {item.quantity}</span>
                     <button onClick={() => increaseQuantity(item.id)}>+</button>
                   </div>
-                  <button className={styles.deleteButton} onClick={() => removeItem(item.id)}>Remove</button>
+                  <button className={styles.deleteButton} onClick={() => removeItem(item.id)}>remove</button>
                 </div>
               </div>
             ))}
